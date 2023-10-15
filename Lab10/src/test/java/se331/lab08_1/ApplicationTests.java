@@ -1,10 +1,10 @@
-package se331.lab10;
+package se331.lab08_1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Lab10ApplicationTests {
+class ApplicationTests {
 
     @Test
     void contextLoads() {
