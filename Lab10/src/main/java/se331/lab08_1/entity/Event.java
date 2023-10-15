@@ -1,8 +1,11 @@
 package se331.lab08_1.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -22,9 +25,12 @@ public class Event {
     String date;
     String time;
     Boolean petAllowed;
+    @JsonManagedReference
     @ManyToOne
     Organizer organizer;
-    @ManyToMany(mappedBy = "eventHistory")
-    List<Participant> participant;
-
+    @ManyToMany(mappedBy = "eventHistory", cascade = CascadeType.PERSIST)
+    @Builder.Default
+    List<Participant> participant = new ArrayList<>();
+    @ElementCollection
+    List<String> images;
 }
